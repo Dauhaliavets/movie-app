@@ -6,10 +6,10 @@ const API_KEY = '5310e65bd52ea1cdc768ced9af904654';
 
 const URL_POPULAR = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`;
 const URL_MOVIE = 'https://api.themoviedb.org/3/search/movie?';
-
 const URL_POSTER = 'https://image.tmdb.org/t/p/';
-const DEFAULT_PATH_POSTER = '/kqjL17yufvn9OVLyXYpvtyrFfak.jpg';
-const DEFAULT_WIDTH = '342';
+
+const DEFAULT_PATH_POSTER = './assets/img/file-not-found.jpg';
+const DEFAULT_WIDTH = '300';
 
 function pressSubmit(e){
     e.preventDefault();
@@ -22,7 +22,6 @@ async function getData(url, query){
     const response = await fetch(url);
     if(response.status === 200) {
         const data = await response.json();
-        console.log(data)
         showData(data.results, main, query)
     } else {
         throw Error('Something went wrong');
@@ -51,7 +50,7 @@ class Card {
         this.title = title,
         this.vote_overage = vote_average,
         this.overview = overview,
-        this.src = `${URL_POSTER}w${DEFAULT_WIDTH}${this.poster || DEFAULT_PATH_POSTER}`
+        this.src = this.poster ? `${URL_POSTER}w${DEFAULT_WIDTH}${this.poster}` : DEFAULT_PATH_POSTER;
     }
 
     createCard = () => {    
@@ -68,7 +67,6 @@ class Card {
         const img = this.createCustomElement('img', 'card__image', null);
         img.src = this.src;
         img.alt = this.title;
-        img.width = DEFAULT_WIDTH;
     
         return img;
     }

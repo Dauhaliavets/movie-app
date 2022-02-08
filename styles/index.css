@@ -111,7 +111,8 @@ body {
 }
 .card:hover .overview {
     top: 10px;
-    transition: .3s;
+    transform: translateY(0);
+    transition: .2s;
 }
 .card__image { 
     border-radius: 8px;
@@ -139,20 +140,16 @@ body {
     background: rgba(24, 30, 46, 0.6);
     backdrop-filter: blur(24px);
     position: absolute;
-    top: -513px;
+    top: 0;
+    transform: translateY(-100%);
     width: calc(100% - 20px);
-    /* height: 513px; */
     height: calc(100% - 70px);
     padding: 30px 20px;
     border-radius: 5px;
-    transition: .3s;
+    transition: .2s;
     overflow: auto;
 }
 
-
-.footer { 
-    
-}
 .footer__body {
     display: flex;
     justify-content: space-between;
@@ -176,4 +173,43 @@ body {
 .rss-link:hover {
     color:#474e5f;
     transition: .3s;
+}
+
+@media (max-width: 600px) {
+    .header {
+        padding: 10px;
+    }
+    .header__body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .header__form {
+        margin-top: 10px;
+    }
+    .main {
+        padding: 140px 10px 40px;
+    }
+    .main__body-title {
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 425px) { 
+    .card {
+        width: 100%;
+    }
+    .card__image {
+        min-height: calc(100% - 60px);
+        width: 100%;
+    }
+    .footer__body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
 }
