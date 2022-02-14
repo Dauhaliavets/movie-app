@@ -111,7 +111,7 @@ body {
 }
 .card:hover .overview {
 	transform: translateY(0);
-	transition: 0.2s;
+	transition: transform 0.4s;
 }
 .card__image {
 	width: 100%;
@@ -143,8 +143,7 @@ body {
 	margin-top: 10px;
 }
 .overview {
-	background: rgba(21, 25, 36, 0.863);
-	backdrop-filter: blur(24px);
+	background: rgba(21, 25, 36, 0.95);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -158,6 +157,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	font-weight: 400;
+	transition: transform 0.4s;
 }
 .overview_title {
 	text-align: center;
